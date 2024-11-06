@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 
 import authRoutes from "./routes/authRoutes";
+import cartRoutes from "./routes/cartRoutes";
 import sequelize from "./utils/database";
 
 dotenv.config();
@@ -19,6 +20,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Hello, TypeScript with nyaa hello");
 });
 app.use("/api/auth", authRoutes);
+app.use("/api/cart", cartRoutes);
 
 app.get("/api/status", (_, res: Response) => {
   const status = {
