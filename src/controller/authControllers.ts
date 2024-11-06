@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import User from "../models/User";
+import { sign } from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
 // Define the interface for the request body
@@ -17,9 +18,14 @@ interface SigninRequestBody {
 export const signupController = async (req: Request, res: Response) => {
   const { name, email, password }: SignupRequestBody = req.body;
   try {
-    await User.create({ name, email, password });
-    res.status(201).json({ name, email, password });
+    const user = await User.create({ name, email, password });
+    const token = sign(
+      { userId: user.id, email: user.email },
+      process.env.JWT_SECRET!
+    );
+    res.status(201).json(token);
   } catch (error) {
+    console.log(process.env.JWT_SECRET);
     res.status(500).json({ message: error });
   }
 };

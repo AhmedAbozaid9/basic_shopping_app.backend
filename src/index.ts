@@ -1,9 +1,12 @@
 import express, { Request, Response } from "express";
 import path from "path";
 import bodyParser from "body-parser";
+import dotenv from "dotenv";
 
 import authRoutes from "./routes/authRoutes";
 import sequelize from "./utils/database";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
