@@ -23,7 +23,11 @@ export const signupController = async (req: Request, res: Response) => {
       { userId: user.id, email: user.email },
       process.env.JWT_SECRET!
     );
-    res.status(201).json(token);
+    res.status(201).json({
+      success: true,
+      user: { name: user.name, email: user.email },
+      token,
+    });
   } catch (error) {
     console.log(process.env.JWT_SECRET);
     res.status(500).json({ message: error });
@@ -41,7 +45,15 @@ export const signInController = async (req: Request, res: Response) => {
       if (!isPasswordValid) {
         res.status(401).json({ message: "Invalid credentials" });
       } else {
-        res.status(200).json(user);
+        const token = sign(
+          { userId: user.id, email: user.email },
+          process.env.JWT_SECRET!
+        );
+        res.status(200).json({
+          success: true,
+          user: { name: user.name, email: user.email },
+          token,
+        });
       }
     }
   } catch (error) {
