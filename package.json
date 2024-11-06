@@ -12,11 +12,22 @@
   "description": "",
   "dependencies": {
     "@types/express": "^5.0.0",
-    "express": "^4.21.1"
+    "@types/sequelize": "^4.28.20",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.11.3",
+    "sequelize": "^6.37.5"
   },
   "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/node": "^22.9.0",
+    "eslint": "^9.14.0",
+    "globals": "^15.12.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.13.0"
   }
 }

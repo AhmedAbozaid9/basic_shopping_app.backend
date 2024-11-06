@@ -1,0 +1,17 @@
+{
+  "sqltools.connections": [
+    {
+      "mysqlOptions": {
+        "authProtocol": "default",
+        "enableSsl": "Disabled"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 3306,
+      "driver": "MySQL",
+      "name": "basic_shopping_app",
+      "username": "root",
+      "database": "basic_shopping_app"
+    }
+  ]
+}
